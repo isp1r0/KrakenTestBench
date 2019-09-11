@@ -13,6 +13,7 @@ module.exports = (router) => {
 
   model.sinkData.forEach(({ method, uri, sink, key }) => {
     router[method](uri, (req, res) => {
+      console.log('in handler');
       const { input } = get(req, key);
       console.log('calling res.send', input);
       res.send(input);
